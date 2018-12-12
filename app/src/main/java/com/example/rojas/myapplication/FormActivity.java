@@ -35,7 +35,7 @@ public class FormActivity extends AppCompatActivity {
 
     private void saveData() {
         Intent intent = new Intent();
-        intent.putExtra("USERNAME", editTextName.getText());
+        intent.putExtra("USERNAME", editTextName.getText().toString());
         setResult(RESULT_OK, intent);
         finish();
     }

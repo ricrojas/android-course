@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String username = args.getString("USERNAME");
                 textViewName.setText(username);
             } else {
-                
+                //handle error
             }
         }
 
