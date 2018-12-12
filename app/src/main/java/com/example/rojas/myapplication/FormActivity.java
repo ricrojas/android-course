@@ -35,7 +35,9 @@ public class FormActivity extends AppCompatActivity {
 
     private void saveData() {
         String name = editTextName.getText().toString();
-        DataManager.getInstance().setName(name);
+        if (!name.isEmpty()) {
+            DataManager.getInstance().addName(name);
+        }
         finish();
     }
 }
