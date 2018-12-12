@@ -22,6 +22,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initViews();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        textViewName.setText(DataManager.getInstance().getName());
+    }
+
     private void initViews() {
         textViewName = findViewById(R.id.activity_main_textview_name);
         buttonNext = findViewById(R.id.activity_main_button_next);
@@ -31,26 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK && data.getExtras() != null) {
-                Bundle args = data.getExtras();
-                String username = args.getString("USERNAME");
-                textViewName.setText(username);
-            } else {
-                //handle error
-            }
-        }
-
-    }
-
-    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_main_button_next :
                 Intent intent = new Intent(this, FormActivity.class);
-                startActivityForResult(intent, 1);
+                startActivity(intent);
                 break;
         }
     }
